@@ -3,9 +3,7 @@ import {
 	CakeIcon,
 	EyeIcon,
 	GiftIcon,
-	MenuIcon,
 	PlayIcon,
-	RefreshIcon,
 	SunIcon,
 	UserCircleIcon,
 } from "@heroicons/react/solid";
