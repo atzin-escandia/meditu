@@ -6,7 +6,7 @@ import MobileMenu from "./MobileMenu";
 
 export const Header = () => {
 	return (
-		<nav className="flex justify-between w-80 mb-10">
+		<nav className="flex justify-between w-100 mb-5">
 			{/* <Icon size="lg" icon={MenuIcon} /> */}
 			<MobileMenu />
 			{/* <Icon size="lg" icon={HandIcon} /> */}

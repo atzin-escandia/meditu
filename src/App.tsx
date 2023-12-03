@@ -15,6 +15,7 @@ import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
 import axios from "axios";
 import { UserContextProvider } from "./context/USerContext";
+import { NewMeditation } from "./pages/NewMeditation";
 
 const App: React.FC = () => {
 	axios.defaults.baseURL = "http://localhost:4000";
@@ -28,6 +29,7 @@ const App: React.FC = () => {
 				<Route path="/meditations" element={<Meditations />} />
 				<Route path="meditations/:id?" element={<Sound />} />
 				<Route path="/profile" element={<Profile />} />
+				<Route path="/new-meditation" element={<NewMeditation />} />
 
 				{/* Public */}
 				<Route path="/login" element={<Login />} />

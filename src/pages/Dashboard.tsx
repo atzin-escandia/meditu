@@ -7,9 +7,20 @@ import {
 	SunIcon,
 	UserCircleIcon,
 } from "@heroicons/react/solid";
-import { Button, Card, Icon, Metric, Subtitle, Text } from "@tremor/react";
+import {
+	Button,
+	Card,
+	Icon,
+	Metric,
+	Subtitle,
+	Text,
+	Title,
+} from "@tremor/react";
+import { useContext } from "react";
+import { UserContext } from "../context/USerContext";
 
 export const Dashboard = () => {
+	const { user } = useContext(UserContext);
 	const topics = [
 		{
 			name: "Calm",
@@ -35,10 +46,11 @@ export const Dashboard = () => {
 
 	return (
 		<main className="text-left">
-			<Metric>Welcome back, Afreen</Metric>
+			<Metric>{`Welcome back, ${user?.name}`}</Metric>
 			<Subtitle>How are you feeling today? </Subtitle>
 
-			<div className="flex overflow-auto mt-5 mb-5">
+			<Title className="mt-5">Categories</Title>
+			<div className="flex overflow-auto  mb-5">
 				{topics.map((topic) => (
 					<div key={topic.name} className="mr-5 mt-5">
 						<Card>

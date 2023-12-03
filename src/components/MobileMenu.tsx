@@ -1,23 +1,30 @@
-import { Button, Col, Grid, Subtitle } from "@tremor/react";
+import { Button, Col, Grid } from "@tremor/react";
 import { LogoutIcon, MenuIcon } from "@heroicons/react/outline";
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../assets/react.svg";
-import { NAVIGATION_TABS } from "../constants";
 import { UserContext } from "../context/USerContext";
 import axios from "axios";
 
 interface Props {}
 
 const MobileMenu: React.FC<Props> = () => {
-	const { user } = useContext(UserContext);
+	const { user, setUser } = useContext(UserContext);
 	const [showMenu, setShowMenu] = useState<boolean>(false);
+	const navigate = useNavigate();
 	const toggleMenu = () => {
 		setShowMenu(!showMenu);
+	};
+	const logoClick = () => {
+		setShowMenu(false);
+		navigate("/");
 	};
 
 	const logout = async () => {
 		await axios.post("/logout");
+		setUser(null);
+		setShowMenu(!showMenu);
+		navigate("/login");
 	};
 
 	return (
@@ -27,7 +34,7 @@ const MobileMenu: React.FC<Props> = () => {
 					<Button
 						onClick={toggleMenu}
 						color="gray"
-						className="w-full mt-1 justify-start  "
+						className="w-full mt-1 justify-start"
 						size="lg"
 						icon={MenuIcon}
 						variant="light"
@@ -39,7 +46,6 @@ const MobileMenu: React.FC<Props> = () => {
 							showMenu ? "visible" : ""
 						}`}
 					>
-						{/* <Link key={i} to={link.to}> */}
 						<Button
 							onClick={logout}
 							color="gray"
@@ -51,12 +57,11 @@ const MobileMenu: React.FC<Props> = () => {
 						>
 							Logout
 						</Button>
-						{/* </Link> */}
 					</div>
 				</div>
 			</Col>
 			<Col className="mt-1" numColSpan={1}>
-				<Link onClick={toggleMenu} to="/">
+				<Link onClick={logoClick} to="/">
 					<img
 						width={"30px"}
 						className="mx-auto"
@@ -65,8 +70,14 @@ const MobileMenu: React.FC<Props> = () => {
 					/>
 				</Link>
 			</Col>
-			<Col className="text-end" numColSpan={2}>
-				<Subtitle>{user?.name}</Subtitle>
+			<Col className="flex justify-end" numColSpan={2}>
+				<Link to="/profile" className="text-end">
+					<img
+						className="mb-2 inline-block h-8 w-8 rounded-full ring-2 ring-white"
+						src="https://media.licdn.com/dms/image/D4D03AQHjkz7cwu7hEg/profile-displayphoto-shrink_800_800/0/1699793146844?e=1707350400&v=beta&t=XGE0pWRrfBu5MZX0DM3dt0o2hGdcPq9HvW8KT62YfW4"
+						alt=""
+					/>
+				</Link>
 			</Col>
 		</Grid>
 	);
