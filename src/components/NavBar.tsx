@@ -1,5 +1,5 @@
 import { Icon } from "@tremor/react";
-import { HandIcon, MenuIcon, UserCircleIcon } from "@heroicons/react/solid";
+import { HandIcon, MusicNoteIcon, UserIcon } from "@heroicons/react/solid";
 import { Link } from "react-router-dom";
 
 export const NavBar = () => {
@@ -10,10 +10,10 @@ export const NavBar = () => {
 					<Icon size="lg" icon={HandIcon} />
 				</Link>
 				<Link to="/meditations">
-					<Icon size="lg" icon={MenuIcon} />
+					<Icon size="lg" icon={MusicNoteIcon} />
 				</Link>
 				<Link to="/profile">
-					<Icon size="lg" icon={UserCircleIcon} />
+					<Icon size="lg" icon={UserIcon} />
 				</Link>
 			</nav>
 		</div>

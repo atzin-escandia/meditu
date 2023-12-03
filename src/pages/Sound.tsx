@@ -7,7 +7,6 @@ import {
 	RewindIcon,
 } from "@heroicons/react/solid";
 import { Icon, Metric, Subtitle, Tracker } from "@tremor/react";
-import React from "react";
 
 export const Sound = () => {
 	const data: [] = [

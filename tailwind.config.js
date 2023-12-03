@@ -48,7 +48,7 @@ export default {
 						faint: "#0B1229", // custom
 						muted: "#172554", // blue-950
 						subtle: "#1e40af", // blue-800
-						DEFAULT: "#3b82f6", // blue-500
+						DEFAULT: "#ccc", // blue-500
 						emphasis: "#60a5fa", // blue-400
 						inverted: "#030712", // gray-950
 					},

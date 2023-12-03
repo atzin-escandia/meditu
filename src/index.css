@@ -19,3 +19,13 @@
 navbar{
   background-color: #242424;
 }
+
+.menu-container {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.menu-container.visible {
+  max-height: 500px;
+}

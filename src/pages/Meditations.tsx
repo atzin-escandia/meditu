@@ -8,29 +8,36 @@ import {
 	Text,
 	Title,
 } from "@tremor/react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 export const Meditations = () => {
+	const { id } = useParams();
+	console.log(id);
+
 	const meditationsList = [
 		{
+			id: 1,
 			title: "Painting Forest",
 			counter: "5k",
 			icon: EyeIcon,
 			duration: "20 min",
 		},
 		{
+			id: 2,
 			title: "Painting Forest",
 			counter: "5k",
 			icon: EyeIcon,
 			duration: "20 min",
 		},
 		{
+			id: 3,
 			title: "Painting Forest",
 			counter: "5k",
 			icon: EyeIcon,
 			duration: "20 min",
 		},
 		{
+			id: 4,
 			title: "Painting Forest",
 			counter: "5k",
 			icon: EyeIcon,
@@ -49,12 +56,9 @@ export const Meditations = () => {
 			</Card>
 
 			<div className="mt-5 mb-5">
-				{meditationsList.map((meditation) => (
-					<div
-						key={meditation.title}
-						className="flex justify-between mt-5"
-					>
-						<Link to="/sound/hi">
+				{meditationsList.map((meditation, index) => (
+					<div key={index} className="flex justify-between mt-5">
+						<Link to={`/meditations/${meditation.id}`}>
 							<Icon size="lg" icon={meditation.icon} />
 						</Link>
 						<div>
